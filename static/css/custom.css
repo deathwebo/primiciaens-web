@@ -1,0 +1,29 @@
+small {
+  font-size: 1rem;
+}
+
+.title {
+  text-align: center;
+}
+.title a {
+  color: #000000;
+}
+
+.news {
+  background-color: #fffae68f;
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.news-title {
+  margin-bottom: -1rem;
+}
+
+.news-title a {
+  font-size: 1.6rem;
+}
+
+.paging {
+  text-align: center;
+  margin-bottom: 3rem;
+}
