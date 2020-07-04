@@ -26,10 +26,14 @@ def news():
     offset_page = page - 1
     offset = offset_page * limit
     start = 1 + (offset_page * limit)
+    # For ordering, the more time has elapsed, the less weight the news is going to have
     query = """
-    SELECT *
+    SELECT *,
+    (
+        (1+visits)/extract(EPOCH from age(now(), "datetimeAdded"))
+    ) order_weight
     FROM news
-    ORDER BY "dateAdded" DESC, visits DESC, "datetimeAdded" DESC
+    ORDER BY order_weight DESC
     OFFSET {}
     LIMIT {}
     """.format(offset, limit)
