@@ -8,23 +8,30 @@
     <link rel="stylesheet" href="/static/css/custom.css">
 
     <script>
-        function registerVisit(el) {
-            if (!el.target.dataset.id) {
+        function registerVisit(e) {
+            if (!e.target.dataset.id) {
                 return true;
             }
-            var url = "/news/"+el.target.dataset.id+"/visits";
+            var url = "/news/"+e.target.dataset.id+"/visits";
             var params = "";
             var xhr = new XMLHttpRequest();
             xhr.open("POST", url, true);
+            xhr.addEventListener("load", function () {
+                window.location.href = e.target.href;
+            });
+            xhr.addEventListener("error", function () {
+                window.location.href = e.target.href;
+            });
 
             //Send the proper header information along with the request
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             xhr.send(params);
+            e.preventDefault()
         }
 
         window.onload = function() {
-            anchors = document.getElementsByClassName('news-url')
+            var anchors = document.getElementsByClassName('news-url')
             for(var i = 0; i < anchors.length; i++) {
                 var anchor = anchors[i];
                 anchor.onclick = registerVisit
