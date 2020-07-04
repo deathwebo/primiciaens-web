@@ -1,5 +1,4 @@
 % include('header.html', title='Page Title')
-<h1 class="title"><a href="/">PrimiciaEns</a></h1>
 <div class="news">
     <ol class="news-list" start="{{ start }}">
         % for new in news:
@@ -16,8 +15,9 @@
         </li>
         % end
     </ol>
-</div>
-<div class="paging">
-    <a class="button primary" href="/news?p={{ int(page) + 1 }}">ver más</a>
+    <hr class="footer-divider" />
+    <div class="paging">
+        <a class="button primary" href="/news?p={{ int(page) + 1 }}">ver más</a>
+    </div>
 </div>
 % include('footer.html')

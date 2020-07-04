@@ -2,11 +2,19 @@ small {
   font-size: 1rem;
 }
 
-.title {
-  text-align: center;
+.header {
+  margin: 1.5rem auto 0 auto;
+  background-color: #14854f;
+  width: 80vw;
+  padding: 0 0 0 2rem;
 }
-.title a {
-  color: #000000;
+
+.header .title {
+  font-size: 2rem;
+  margin: 0;
+}
+.header .title a {
+  color: #ffffff;
 }
 
 .news {
@@ -15,12 +23,21 @@ small {
   margin: 0 auto;
 }
 
+.news ol {
+  margin: 0;
+}
+
 .news-title {
   margin-bottom: -1rem;
 }
 
 .news-title a {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+}
+
+.footer-divider {
+  background-color: #d43939;
+  height: 0.3rem;
 }
 
 .paging {
