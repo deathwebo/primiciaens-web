@@ -14,6 +14,7 @@ DEFAULT_DB_URI = 'postgresql://primicia:primiciapassword!@0.0.0.0:5432/primicia'
 DB_URI = os.getenv("DATABASE_URL", DEFAULT_DB_URI)
 db = dataset.connect(DB_URI)
 
+
 @route("/")
 @route("/news")
 def news():
@@ -29,9 +30,7 @@ def news():
     # For ordering, the more time has elapsed, the less weight the news is going to have
     query = """
     SELECT *,
-    (
-        (1+visits)/extract(EPOCH from age(now(), "datetimeAdded"))
-    ) order_weight
+    (1+visits)/power((extract(EPOCH from age(now(), "datetimeAdded"))/3600)+2, 1.8) as order_weight
     FROM news
     ORDER BY order_weight DESC
     OFFSET {}
@@ -62,6 +61,7 @@ def visits(id):
 def static_files(filename):
     """Serve static files"""
     return static_file(filename, root='{0}/static/'.format(PROJECT_PATH))
+
 
 if os.environ.get('APP_LOCATION') == 'dokku':
     run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
