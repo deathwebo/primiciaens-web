@@ -1,11 +1,17 @@
 import os
 import dataset
-import datetime
-import time
+import logging
 
 from bottle import Bottle, route, run, template, request, static_file, response
 from utils import ellapsed_time
 from json import dumps
+
+logging.basicConfig(
+    filename='app.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
 
 app = Bottle()
 
@@ -36,8 +42,14 @@ def news():
     OFFSET {}
     LIMIT {}
     """.format(offset, limit)
-    news = db.query(query)
+    news_result = db.query(query)
+    news = []
+    ids = []
+    for new in news_result:
+        ids.append(str(new['id']))
+        news.append(new)
 
+    logging.debug(", ".join(ids))
     # for new in news:
     #     ellapsed = time.time() - new["datetimeAdded"].timestamp()
     #     print(hms(ellapsed))
