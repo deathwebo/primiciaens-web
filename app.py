@@ -2,7 +2,7 @@ import os
 import dataset
 import logging
 
-from bottle import Bottle, route, run, template, request, static_file, response
+from bottle import Bottle, route, run, template, request, static_file, response, TEMPLATES
 from utils import ellapsed_time
 from json import dumps
 
@@ -12,6 +12,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+TEMPLATES.clear()
 
 app = Bottle()
 
