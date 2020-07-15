@@ -3,10 +3,30 @@ small {
 }
 
 .header {
-  margin: 1.5rem auto 0 auto;
   background-color: #14854f;
-  width: 80vw;
-  padding: 0 0 0 2rem;
+}
+
+.news {
+  background-color: #fffae68f;
+}
+
+@media only screen and (min-device-width : 769px) {
+  .header {
+    margin: 1rem auto 0 auto;
+    width: 80vw;
+    padding: 0 0 0 2rem;
+  }
+
+  .news {
+    width: 80vw;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
+    .header {
+      margin: 0 auto 0 auto;
+    }
 }
 
 .header .title {
@@ -15,12 +35,6 @@ small {
 }
 .header .title a {
   color: #ffffff;
-}
-
-.news {
-  background-color: #fffae68f;
-  width: 80vw;
-  margin: 0 auto;
 }
 
 .news ol {
