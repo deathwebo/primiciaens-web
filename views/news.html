@@ -11,7 +11,10 @@
                     {{new['title']}}
                 </a> <small class="text-gray">({{ new["website"] }})</small>
             </div>
-            <small class="text-gray">{{ ellapsed_time(new["datetimeAdded"]) }}</small>
+            <small class="text-gray">
+                {{ new["visits"]+1 }} {{ "punto" if new["visits"] == 0 else "puntos" }}
+                - {{ ellapsed_time(new["datetimeAdded"]) }}
+            </small>
         </li>
         % end
     </ol>
