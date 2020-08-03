@@ -1,20 +1,36 @@
+@font-face {
+  font-family: 'Kefa';
+  src: url('Kefa-Regular.woff2') format('woff2'),
+      url('Kefa-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 small {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .header {
-  background-color: #14854f;
+  background-color: #7DB2E5;
+  padding: 1rem 0 1rem 0;
+  border-bottom: #20416B 0.3rem solid;
 }
 
 .news {
-  background-color: #fffae68f;
+  background-color: #ffffff;
 }
 
+/* Desktop styling */
 @media only screen and (min-device-width : 769px) {
   .header {
-    margin: 1rem auto 0 auto;
+    margin: 0 auto;
+  }
+
+  .header section {
     width: 80vw;
-    padding: 0 0 0 2rem;
+    margin: 0 auto;
+    padding-left: 2rem;  
   }
 
   .news {
@@ -23,22 +39,47 @@ small {
   }
 }
 
+/* Mobile styling */
 @media only screen and (min-device-width : 320px) and (max-device-width : 768px) {
     .header {
       margin: 0 auto 0 auto;
     }
+
+    .header section {
+      justify-content: center;
+    }
 }
 
-.header .title {
-  font-size: 2rem;
-  margin: 0;
+.header section {
+  display: flex;
+  align-items: center;
+}
+
+.header section .logo {
+  height: 7rem;
+}
+
+.header section .title {
+  font-family: 'Kefa';
+  font-weight: lighter;
+  font-style: normal;
+  font-size: 5rem;
+  margin: 0 0 0 1rem;
 }
 .header .title a {
-  color: #ffffff;
+  color: #000000;
 }
 
 .news ol {
   margin: 0;
+}
+
+.news ol li {
+  padding: 1rem 0 1rem 0.5rem;
+}
+
+.news ol li:nth-child(even) {
+  background-color: #F2F9FC;
 }
 
 .news-title {
@@ -46,15 +87,20 @@ small {
 }
 
 .news-title a {
-  font-size: 1.4rem;
+  font-size: 2rem;
+  color: #17313E;
 }
 
 .footer-divider {
-  background-color: #d43939;
+  background-color: #20416B;
   height: 0.3rem;
 }
 
 .paging {
   text-align: center;
   margin-bottom: 3rem;
+}
+
+.paging .button.primary {
+  background-color: #20416B;
 }
